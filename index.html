@@ -1,0 +1,2183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Gaming Birthday Card - Amisha's Special Day</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;700&family=Great+Vibes&family=Orbitron:wght@400;700;900&display=swap');
+
+        :root {
+            --accent: #FFD700;
+            --accent-2: #FF69B4;
+            --glass: rgba(255, 255, 255, 0.12);
+            --text: #ffffff;
+            --neon-glow: 0 0 20px rgba(255, 215, 0, 0.7), 0 0 40px rgba(255, 215, 0, 0.4);
+            --neon-glow-2: 0 0 20px rgba(255, 105, 180, 0.7), 0 0 40px rgba(255, 105, 180, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #fecfef 75%, #fecfef 100%);
+            background-size: 400% 400%;
+            animation: cosmicFlow 20s ease infinite;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding: 10px;
+            color: var(--text);
+            transition: background 0.8s ease;
+        }
+
+        body.neon {
+            background: radial-gradient(circle at 10% 10%, #0b0f1a, #0a0017 35%, #000 100%);
+        }
+
+        body.pastel {
+            background: linear-gradient(135deg, #a1c4fd, #c2e9fb 50%, #fbc2eb 100%);
+        }
+
+        @keyframes cosmicFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floating Orbs */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            opacity: 0.6;
+            animation: float 20s infinite ease-in-out;
+            pointer-events: none;
+            mix-blend-mode: screen;
+        }
+
+        .orb1 {
+            width: min(400px, 40vw);
+            height: min(400px, 40vw);
+            background: radial-gradient(circle, var(--accent), var(--accent-2));
+            top: -10%;
+            left: -10%;
+        }
+
+        .orb2 {
+            width: min(300px, 30vw);
+            height: min(300px, 30vw);
+            background: radial-gradient(circle, var(--accent-2), #9370DB);
+            bottom: -10%;
+            right: -10%;
+            animation-delay: 5s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -30px) scale(1.1); }
+            66% { transform: translate(-30px, 30px) scale(0.9); }
+        }
+
+        /* Main Container */
+        .main-container {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Navigation */
+        .nav-tabs {
+            display: flex;
+            gap: 10px;
+            background: var(--glass);
+            backdrop-filter: blur(14px) saturate(1.5);
+            padding: 10px;
+            border-radius: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            max-width: 900px;
+            border: 1px solid rgba(255,255,255,0.15);
+            overflow-x: auto;
+        }
+
+        .nav-tab {
+            position: relative;
+            padding: 12px 16px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s cubic-bezier(.2,.8,.2,1);
+            font-size: clamp(0.8rem, 1.8vw, 1.1rem);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .nav-tab.active {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #000;
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.45);
+        }
+
+        .nav-tab:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+        }
+
+        /* Content Sections */
+        .content-section {
+            display: none;
+            width: 100%;
+            animation: fadeIn 0.6s ease;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(18px); filter: blur(2px); }
+            to { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+
+        /* Card Section */
+        .card-container {
+            perspective: 2000px;
+            width: min(460px, 92vw);
+            height: min(620px, 72vh);
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .card {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 1.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            cursor: pointer;
+            border-radius: 30px;
+        }
+
+        .card.is-flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 30px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 24px;
+        }
+
+        .card-front {
+            background:
+                radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.12), transparent 50%),
+                linear-gradient(135deg, #1e3c72, #2a5298);
+        }
+
+        .card-back {
+            background:
+                radial-gradient(circle at 80% 90%, rgba(255, 255, 255, 0.12), transparent 50%),
+                linear-gradient(135deg, #0F2027, #203A43, #2C5364);
+            transform: rotateY(180deg);
+        }
+
+        .envelope {
+            width: min(290px, 72vw);
+            height: min(190px, 42vw);
+            background: linear-gradient(135deg, #FFE4B5, #FFD700);
+            position: relative;
+            margin-bottom: 30px;
+            animation: envelopeFloat 3.2s ease-in-out infinite;
+            box-shadow: 0 20px 45px rgba(0,0,0,0.28), inset 0 -10px 20px rgba(0,0,0,0.15);
+            border-radius: 14px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .gift-box {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .gift-lid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            background: linear-gradient(135deg, #FF1493, #FF69B4);
+            transition: transform 0.8s cubic-bezier(.2,.8,.2,1);
+            border-radius: 14px 14px 0 0;
+        }
+
+        .gift-body {
+            position: absolute;
+            top: 35%;
+            left: 0;
+            width: 100%;
+            height: 65%;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            border-radius: 0 0 14px 14px;
+        }
+
+        .gift-box.opened .gift-lid {
+            transform: translateY(-80px) rotateX(25deg);
+        }
+
+        .quote-text {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1rem, 3vw, 1.4rem);
+            color: #FFD700;
+            line-height: 1.6;
+            margin: 20px 0;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* Game Section */
+        .game-container {
+            width: min(900px, 96vw);
+            background: var(--glass);
+            backdrop-filter: blur(12px) saturate(1.4);
+            border-radius: 30px;
+            padding: 24px;
+            margin: 0 auto;
+            border: 1px solid rgba(255,255,255,0.16);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+        }
+
+        .game-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .game-title {
+            font-family: 'Orbitron', monospace;
+            font-size: clamp(1.5rem, 4vw, 2.6rem);
+            color: #FFD700;
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.55);
+            margin-bottom: 12px;
+        }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .game-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            border-color: #FFD700;
+            box-shadow: var(--neon-glow);
+        }
+
+        .game-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .game-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #FFD700;
+        }
+
+        .game-description {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 15px;
+        }
+
+        .play-btn {
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #000;
+            border: none;
+            border-radius: 20px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .play-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255,215,0,0.4);
+        }
+
+        /* Interactive Games */
+        .balloon-pop {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(to bottom, #87CEEB, #98D8E8);
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: crosshair;
+        }
+
+        .balloon {
+            position: absolute;
+            width: 60px;
+            height: 80px;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: float 3s ease-in-out infinite;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .balloon:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes balloonFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        /* Jigsaw Puzzle */
+        .puzzle-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        .puzzle-piece {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .puzzle-piece:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .puzzle-piece.selected {
+            border-color: #FFD700;
+            box-shadow: var(--neon-glow);
+        }
+
+        .puzzle-piece.placed {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #000;
+            font-weight: 900;
+        }
+
+        /* Photo Collage */
+        .collage-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            max-width: 500px;
+            margin: 20px auto;
+        }
+
+        .photo-slot {
+            aspect-ratio: 1;
+            background: rgba(255,255,255,0.1);
+            border: 2px dashed rgba(255,255,255,0.3);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .photo-slot:hover {
+            border-color: #FFD700;
+            background: rgba(255,215,0,0.1);
+        }
+
+        .photo-slot.has-photo {
+            border-style: solid;
+            border-color: #FFD700;
+        }
+
+        .photo-preview {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .photo-placeholder {
+            font-size: 3rem;
+            opacity: 0.5;
+        }
+
+        /* Wish Jar */
+        .wish-jar {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            margin: 20px auto;
+            background: linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.1) 30%, rgba(255,255,255,0.2) 100%);
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 20px 20px 40px 40px;
+            overflow: hidden;
+        }
+
+        .wish-input {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.9);
+            color: #333;
+            font-size: 14px;
+        }
+
+        .add-wish-btn {
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 8px 16px;
+            background: #FFD700;
+            color: #000;
+            border: none;
+            border-radius: 15px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .wish-paper {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #FFF;
+            color: #333;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            animation: wishFloat 3s ease-in-out infinite;
+            white-space: nowrap;
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        @keyframes wishFloat {
+            0%, 100% { transform: translateX(-50%) translateY(0) rotate(0deg); }
+            50% { transform: translateX(-50%) translateY(-10px) rotate(2deg); }
+        }
+
+        /* Countdown Timer */
+        .countdown-display {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-family: 'Orbitron', monospace;
+            color: #FFD700;
+            text-shadow: 0 0 20px rgba(255,215,0,0.5);
+            margin: 20px 0;
+        }
+
+        .countdown-unit {
+            display: inline-block;
+            margin: 0 10px;
+            text-align: center;
+        }
+
+        .countdown-label {
+            display: block;
+            font-size: 0.4em;
+            color: rgba(255,255,255,0.7);
+            margin-top: 5px;
+        }
+
+        /* Audio Player */
+        .audio-player {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            margin: 20px auto;
+            max-width: 400px;
+        }
+
+        .play-pause-btn {
+            width: 50px;
+            height: 50px;
+            border: none;
+            border-radius: 50%;
+            background: #FFD700;
+            color: #000;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .play-pause-btn:hover {
+            transform: scale(1.1);
+            box-shadow: var(--neon-glow);
+        }
+
+        .track-info {
+            flex: 1;
+        }
+
+        .track-title {
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .track-controls {
+            display: flex;
+            gap: 10px;
+            margin-top: 5px;
+        }
+
+        .track-btn {
+            padding: 5px 10px;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+
+        .track-btn.active {
+            background: #FFD700;
+            color: #000;
+        }
+
+        /* Sparkle Effect */
+        .sparkle {
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            background: radial-gradient(circle, #FFD700, transparent);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: sparkleMove 2s linear infinite;
+            z-index: 9999;
+        }
+
+        @keyframes sparkleMove {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-tabs {
+                overflow-x: auto;
+                gap: 8px;
+            }
+            
+            .game-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .puzzle-container {
+                max-width: 300px;
+            }
+            
+            .collage-container {
+                max-width: 350px;
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Utilities */
+        .focus-glow:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255,215,0,0.5), 0 0 0 6px rgba(255,215,0,0.2);
+        }
+
+        .btn {
+            padding: 12px 28px;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #000;
+            border: none;
+            border-radius: 28px;
+            font-size: clamp(0.9rem, 2vw, 1.2rem);
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 24px rgba(0,0,0,0.4), var(--neon-glow);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">Preparing Magic...</div>
+        </div>
+    </div>
+
+    <!-- Floating Orbs -->
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Navigation -->
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="switchTab('card')">🎂 Card</button>
+            <button class="nav-tab" onclick="switchTab('games')">🎮 Games</button>
+            <button class="nav-tab" onclick="switchTab('interactive')">✨ Interactive</button>
+            <button class="nav-tab" onclick="switchTab('media')">📸 Media</button>
+            <button class="nav-tab" onclick="switchTab('music')">🎵 Music</button>
+            <button class="nav-tab" onclick="switchTab('wishes')">💌 Wishes</button>
+            <button class="nav-tab" onclick="switchTab('countdown')">⏰ Countdown</button>
+            <button class="nav-tab" onclick="switchTab('settings')">⚙️</button>
+        </div>
+
+        <!-- Card Section -->
+        <div class="content-section active" id="card-section">
+            <div class="card-container">
+                <div class="card" id="birthdayCard">
+                    <div class="card-face card-front">
+                        <div class="gift-box" id="giftBox">
+                            <div class="gift-lid"></div>
+                            <div class="gift-body"></div>
+                        </div>
+                        <h2 style="color: #FFD700; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Click to Open!</h2>
+                    </div>
+                    <div class="card-face card-back">
+                        <div class="quote-text">
+                            "On this magical day, remember: You are not just adding another year to your life, 
+                            you are adding life to your years. Every moment is a gift waiting to be unwrapped.
+                            Happy Birthday, Amisha! 🌟"
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Games Section -->
+        <div class="content-section" id="games-section">
+            <div class="game-container">
+                <div class="game-header">
+                    <h2 class="game-title">🎮 Mini Games Collection 🎮</h2>
+                    <p style="color: rgba(255,255,255,0.8); margin-bottom: 20px;">Choose your favorite game!</p>
+                </div>
+                
+                <div class="game-grid">
+                    <div class="game-card" onclick="openBalloonGame()">
+                        <div class="game-icon">🎈</div>
+                        <div class="game-name">Balloon Pop</div>
+                        <div class="game-description">Pop balloons by clicking them before they float away!</div>
+                        <button class="play-btn">Play Now</button>
+                    </div>
+                    
+                    <div class="game-card" onclick="openJigsawGame()">
+                        <div class="game-icon">🧩</div>
+                        <div class="game-name">Birthday Puzzle</div>
+                        <div class="game-description">Solve the jigsaw puzzle to reveal the birthday message!</div>
+                        <button class="play-btn">Play Now</button>
+                    </div>
+                    
+                    <div class="game-card" onclick="openScratchCard()">
+                        <div class="game-icon">🎫</div>
+                        <div class="game-name">Scratch & Win</div>
+                        <div class="game-description">Scratch to reveal hidden surprise messages!</div>
+                        <button class="play-btn">Play Now</button>
+                    </div>
+                    
+                    <div class="game-card" onclick="openWordSearch()">
+                        <div class="game-icon">🔤</div>
+                        <div class="game-name">Word Search</div>
+                        <div class="game-description">Find birthday-related words in the puzzle grid!</div>
+                        <button class="play-btn">Play Now</button>
+                    </div>
+                    
+                    <div class="game-card" onclick="openSpinWheel()">
+                        <div class="game-icon">🎡</div>
+                        <div class="game-name">Spin the Wheel</div>
+                        <div class="game-description">Spin to win exciting prizes and surprises!</div>
+                        <button class="play-btn">Play Now</button>
+                    </div>
+                    
+                    <div class="game-card" onclick="openMatch3()">
+                        <div class="game-icon">💎</div>
+                        <div class="game-name">Match-3</div>
+                        <div class="game-description">Match birthday gems to score points!</div>
+                        <button class="play-btn">Play Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive Section -->
+        <div class="content-section" id="interactive-section">
+            <div class="game-container">
+                <div class="game-header">
+                    <h2 class="game-title">✨ Interactive Fun ✨</h2>
+                </div>
+                
+                <div class="game-grid">
+                    <div class="game-card">
+                        <div class="game-icon">🎂</div>
+                        <div class="game-name">Decorate Cake</div>
+                        <div class="game-description">Create your dream birthday cake with toppings!</div>
+                        <button class="play-btn" onclick="openCakeDecorator()">Start Decorating</button>
+                    </div>
+                    
+                    <div class="game-card">
+                        <div class="game-icon">🎁</div>
+                        <div class="game-name">Gift Creator</div>
+                        <div class="game-description">Design and wrap virtual gifts!</div>
+                        <button class="play-btn" onclick="openGiftCreator()">Create Gift</button>
+                    </div>
+                    
+                    <div class="game-card">
+                        <div class="game-icon">🕯️</div>
+                        <div class="game-name">Candle Wishes</div>
+                        <div class="game-description">Make a wish and blow out the candles!</div>
+                        <button class="play-btn" onclick="openWishCandles()">Make a Wish</button>
+                    </div>
+                    
+                    <div class="game-card">
+                        <div class="game-icon">📝</div>
+                        <div class="game-name">Message Creator</div>
+                        <div class="game-description">Write custom birthday messages!</div>
+                        <button class="play-btn" onclick="openMessageCreator()">Write Message</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Media Section -->
+        <div class="content-section" id="media-section">
+            <div class="game-container">
+                <div class="game-header">
+                    <h2 class="game-title">📸 Photo Collage Maker 📸</h2>
+                    <p style="color: rgba(255,255,255,0.8);">Upload your favorite photos to create a birthday collage!</p>
+                </div>
+                
+                <div class="collage-container">
+                    <div class="photo-slot" onclick="uploadPhoto(this)">
+                        <div class="photo-placeholder">📷</div>
+                    </div>
+                    <div class="photo-slot" onclick="uploadPhoto(this)">
+                        <div class="photo-placeholder">📷</div>
+                    </div>
+                    <div class="photo-slot" onclick="uploadPhoto(this)">
+                        <div class="photo-placeholder">📷</div>
+                    </div>
+                    <div class="photo-slot" onclick="uploadPhoto(this)">
+                        <div class="photo-placeholder">📷</div>
+                    </div>
+                    <div class="photo-slot" onclick="uploadPhoto(this)">
+                        <div class="photo-placeholder">📷</div>
+                    </div>
+                    <div class="photo-slot" onclick="uploadPhoto(this)">
+                        <div class="photo-placeholder">📷</div>
+                    </div>
+                </div>
+                
+                <div class="game-controls">
+                    <button class="btn" onclick="downloadCollage()">Download Collage</button>
+                    <button class="btn" onclick="clearCollage()">Clear All</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Music Section -->
+        <div class="content-section" id="music-section">
+            <div class="game-container">
+                <div class="game-header">
+                    <h2 class="game-title">🎵 Birthday Playlist 🎵</h2>
+                    <p style="color: rgba(255,255,255,0.8);">Enjoy some melodic birthday tunes!</p>
+                </div>
+                
+                <div class="audio-player">
+                    <button class="play-pause-btn" id="playPauseBtn" onclick="togglePlayPause()">▶️</button>
+                    <div class="track-info">
+                        <div class="track-title" id="currentTrack">Happy Birthday - Classic</div>
+                        <div class="track-controls">
+                            <button class="track-btn active" onclick="selectTrack(0)">Classic</button>
+                            <button class="track-btn" onclick="selectTrack(1)">Jazz</button>
+                            <button class="track-btn" onclick="selectTrack(2)">Pop</button>
+                            <button class="track-btn" onclick="selectTrack(3)">Instrumental</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <canvas id="visualizer" width="600" height="200" style="width: 100%; height: 200px; margin-top: 20px; background: rgba(0,0,0,0.2); border-radius: 10px;"></canvas>
+            </div>
+        </div>
+
+        <!-- Wishes Section -->
+        <div class="content-section" id="wishes-section">
+            <div class="game-container">
+                <div class="game-header">
+                    <h2 class="game-title">💌 Wish Jar 💌</h2>
+                    <p style="color: rgba(255,255,255,0.8);">Add your birthday wishes and see them float in the jar!</p>
+                </div>
+                
+                <div class="wish-jar">
+                    <div id="wishesList"></div>
+                    <input type="text" class="wish-input" id="wishInput" placeholder="Type your birthday wish..." maxlength="50">
+                    <button class="add-wish-btn" onclick="addWish()">Add Wish</button>
+                </div>
+                
+                <div class="game-controls">
+                    <button class="btn" onclick="clearWishes()">Clear All Wishes</button>
+                    <button class="btn" onclick="exportWishes()">Export Wishes</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Countdown Section -->
+        <div class="content-section" id="countdown-section">
+            <div class="game-container">
+                <div class="game-header">
+                    <h2 class="game-title">⏰ Birthday Countdown ⏰</h2>
+                    <p style="color: rgba(255,255,255,0.8);">Time until the next celebration!</p>
+                </div>
+                
+                <div class="countdown-display" id="countdownDisplay">
+                    <div class="countdown-unit">
+                        <div id="days">00</div>
+                        <span class="countdown-label">Days</span>
+                    </div>
+                    <div class="countdown-unit">
+                        <div id="hours">00</div>
+                        <span class="countdown-label">Hours</span>
+                    </div>
+                    <div class="countdown-unit">
+                        <div id="minutes">00</div>
+                        <span class="countdown-label">Minutes</span>
+                    </div>
+                    <div class="countdown-unit">
+                        <div id="seconds">00</div>
+                        <span class="countdown-label">Seconds</span>
+                    </div>
+                </div>
+                
+                <div class="game-controls">
+                    <button class="btn" onclick="setBirthdayDate()">Set Birthday</button>
+                    <button class="btn" onclick="shareCountdown()">Share Countdown</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Section -->
+        <div class="content-section" id="settings-section">
+            <div class="game-container">
+                <div class="game-header">
+                    <h2 class="game-title">⚙️ Settings & Preferences ⚙️</h2>
+                </div>
+                
+                <div style="max-width: 600px; margin: 0 auto;">
+                    <div style="margin-bottom: 30px;">
+                        <h3 style="color: #FFD700; margin-bottom: 15px;">Personalization</h3>
+                        <div style="margin-bottom: 15px;">
+                            <label style="display: block; margin-bottom: 5px;">Name:</label>
+                            <input type="text" id="nameInput" placeholder="Enter name" class="focus-glow" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); color: white;">
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <label style="display: block; margin-bottom: 5px;">Favorite Color:</label>
+                            <input type="color" id="colorInput" value="#FFD700" class="focus-glow" style="width: 60px; height: 40px; border: none; border-radius: 8px; cursor: pointer;">
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 30px;">
+                        <h3 style="color: #FFD700; margin-bottom: 15px;">Preferences</h3>
+                        <div style="margin-bottom: 10px;">
+                            <label><input type="checkbox" id="soundToggle" checked> Enable Sound Effects</label>
+                        </div>
+                        <div style="margin-bottom: 10px;">
+                            <label><input type="checkbox" id="musicToggle" checked> Enable Background Music</label>
+                        </div>
+                        <div style="margin-bottom: 10px;">
+                            <label><input type="checkbox" id="effectsToggle" checked> Enable Visual Effects</label>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 30px;">
+                        <h3 style="color: #FFD700; margin-bottom: 15px;">Data</h3>
+                        <button class="btn" onclick="exportData()">Export Data</button>
+                        <button class="btn" onclick="importData()">Import Data</button>
+                        <button class="btn" onclick="resetAll()">Reset Everything</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Input for file uploads -->
+    <input type="file" id="fileInput" accept="image/*" style="display: none;">
+
+    <script>
+        // Global Variables
+        let currentTab = 'card';
+        let settings = {
+            name: 'Amisha',
+            favoriteColor: '#FFD700',
+            sound: true,
+            music: true,
+            effects: true,
+            birthday: new Date(new Date().getFullYear(), 11, 25) // Default to Dec 25
+        };
+
+        let wishes = JSON.parse(localStorage.getItem('birthdayWishes')) || [];
+        let photoSlots = [];
+        let audioContext, analyser, dataArray;
+        let currentTrackIndex = 0;
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            loadSettings();
+            initializeAudio();
+            startCountdown();
+            createSparkles();
+            loadWishes();
+            updatePersonalization();
+            
+            setTimeout(() => {
+                document.getElementById('loadingScreen').style.display = 'none';
+            }, 2500);
+        });
+
+        // Settings Management
+        function loadSettings() {
+            const saved = localStorage.getItem('birthdaySettings');
+            if (saved) {
+                settings = {...settings, ...JSON.parse(saved)};
+            }
+            
+            document.getElementById('nameInput').value = settings.name;
+            document.getElementById('colorInput').value = settings.favoriteColor;
+            document.getElementById('soundToggle').checked = settings.sound;
+            document.getElementById('musicToggle').checked = settings.music;
+            document.getElementById('effectsToggle').checked = settings.effects;
+        }
+
+        function saveSettings() {
+            settings.name = document.getElementById('nameInput').value || 'Amisha';
+            settings.favoriteColor = document.getElementById('colorInput').value;
+            settings.sound = document.getElementById('soundToggle').checked;
+            settings.music = document.getElementById('musicToggle').checked;
+            settings.effects = document.getElementById('effectsToggle').checked;
+            
+            localStorage.setItem('birthdaySettings', JSON.stringify(settings));
+            updatePersonalization();
+        }
+
+        function updatePersonalization() {
+            document.documentElement.style.setProperty('--accent', settings.favoriteColor);
+            document.title = `Ultimate Gaming Birthday Card - ${settings.name}'s Special Day`;
+        }
+
+        // Event Listeners for Settings
+        document.getElementById('nameInput').addEventListener('input', saveSettings);
+        document.getElementById('colorInput').addEventListener('input', saveSettings);
+        document.getElementById('soundToggle').addEventListener('change', saveSettings);
+        document.getElementById('musicToggle').addEventListener('change', saveSettings);
+        document.getElementById('effectsToggle').addEventListener('change', saveSettings);
+
+        // Tab Switching
+        function switchTab(tabName) {
+            document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+
+            document.querySelectorAll('.content-section').forEach(section => section.classList.remove('active'));
+            document.getElementById(`${tabName}-section`).classList.add('active');
+
+            currentTab = tabName;
+            
+            if (settings.effects) {
+                createSparkles();
+            }
+        }
+
+        // Card and Gift Box
+        document.getElementById('birthdayCard').addEventListener('click', function() {
+            this.classList.toggle('is-flipped');
+            if (this.classList.contains('is-flipped')) {
+                openGiftBox();
+            }
+        });
+
+        function openGiftBox() {
+            const giftBox = document.getElementById('giftBox');
+            giftBox.classList.add('opened');
+            if (settings.effects) {
+                createConfetti();
+            }
+        }
+
+        // Games Implementation
+        function openBalloonGame() {
+            const gameArea = document.createElement('div');
+            gameArea.className = 'balloon-pop';
+            gameArea.id = 'balloonGame';
+            
+            const balloons = ['🎈', '🎈', '🎈', '🎈', '🎂', '🎁', '🎉', '✨'];
+            
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    const balloon = document.createElement('div');
+                    balloon.className = 'balloon';
+                    balloon.textContent = balloons[Math.floor(Math.random() * balloons.length)];
+                    balloon.style.left = Math.random() * 90 + '%';
+                    balloon.style.background = `hsl(${Math.random() * 360}, 70%, 60%)`;
+                    balloon.style.animationDelay = Math.random() * 2 + 's';
+                    
+                    balloon.addEventListener('click', function() {
+                        this.style.transform = 'scale(1.5)';
+                        this.style.opacity = '0';
+                        setTimeout(() => this.remove(), 300);
+                        if (settings.sound) playPopSound();
+                    });
+                    
+                    gameArea.appendChild(balloon);
+                    
+                    setTimeout(() => {
+                        if (balloon.parentElement) {
+                            balloon.remove();
+                        }
+                    }, 8000);
+                }, i * 500);
+            }
+            
+            showGameModal('Balloon Pop', gameArea);
+        }
+
+        function openJigsawGame() {
+            const puzzleContainer = document.createElement('div');
+            puzzleContainer.className = 'puzzle-container';
+            
+            const pieces = ['🎂', '🎁', '🎈', '🎉', '✨', '💝', '🎊', '🌟', '🎵'];
+            const shuffled = [...pieces].sort(() => Math.random() - 0.5);
+            
+            shuffled.forEach((piece, index) => {
+                const puzzlePiece = document.createElement('div');
+                puzzlePiece.className = 'puzzle-piece';
+                puzzlePiece.textContent = piece;
+                puzzlePiece.dataset.index = index;
+                puzzlePiece.dataset.correct = pieces.indexOf(piece);
+                
+                puzzlePiece.addEventListener('click', function() {
+                    if (this.classList.contains('placed')) return;
+                    
+                    document.querySelectorAll('.puzzle-piece').forEach(p => p.classList.remove('selected'));
+                    this.classList.add('selected');
+                    
+                    setTimeout(() => {
+                        this.classList.remove('selected');
+                        this.classList.add('placed');
+                        
+                        if (document.querySelectorAll('.puzzle-piece.placed').length === pieces.length) {
+                            setTimeout(() => {
+                                showMessage('Puzzle Complete! 🎉');
+                                if (settings.effects) createConfetti();
+                            }, 500);
+                        }
+                    }, 1000);
+                });
+                
+                puzzleContainer.appendChild(puzzlePiece);
+            });
+            
+            showGameModal('Jigsaw Puzzle', puzzleContainer);
+        }
+
+        function openScratchCard() {
+            const scratchContainer = document.createElement('div');
+            scratchContainer.style.cssText = `
+                position: relative;
+                width: 300px;
+                height: 200px;
+                margin: 20px auto;
+                background: linear-gradient(135deg, #FFD700, #FFA500);
+                border-radius: 15px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.5rem;
+                font-weight: bold;
+                color: #333;
+            `;
+            
+            const hiddenMessage = document.createElement('div');
+            hiddenMessage.textContent = '🎉 You win a special wish! 🎉';
+            scratchContainer.appendChild(hiddenMessage);
+            
+            const scratchLayer = document.createElement('div');
+            scratchLayer.style.cssText = `
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: #ccc;
+                border-radius: 15px;
+                cursor: grab;
+            `;
+            
+            let isScratching = false;
+            
+            scratchLayer.addEventListener('mousedown', () => isScratching = true);
+            scratchLayer.addEventListener('mouseup', () => isScratching = false);
+            scratchLayer.addEventListener('mousemove', scratch);
+            scratchLayer.addEventListener('touchstart', () => isScratching = true);
+            scratchLayer.addEventListener('touchend', () => isScratching = false);
+            scratchLayer.addEventListener('touchmove', (e) => {
+                e.preventDefault();
+                scratch(e.touches[0]);
+            });
+            
+            function scratch(e) {
+                if (!isScratching) return;
+                
+                const rect = scratchLayer.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const circle = document.createElement('div');
+                circle.style.cssText = `
+                    position: absolute;
+                    left: ${x - 20}px;
+                    top: ${y - 20}px;
+                    width: 40px;
+                    height: 40px;
+                    background: transparent;
+                    border-radius: 50%;
+                    pointer-events: none;
+                `;
+                
+                scratchLayer.appendChild(circle);
+                
+                setTimeout(() => circle.remove(), 100);
+                
+                // Check if scratched enough
+                const transparentPixels = scratchLayer.querySelectorAll('div').length;
+                if (transparentPixels > 50) {
+                    scratchLayer.style.opacity = '0';
+                    setTimeout(() => scratchLayer.remove(), 300);
+                }
+            }
+            
+            scratchContainer.appendChild(scratchLayer);
+            showGameModal('Scratch & Win', scratchContainer);
+        }
+
+        function openWordSearch() {
+            const wordSearchContainer = document.createElement('div');
+            wordSearchContainer.style.cssText = `
+                display: grid;
+                grid-template-columns: repeat(10, 1fr);
+                gap: 2px;
+                max-width: 400px;
+                margin: 20px auto;
+            `;
+            
+            const words = ['BIRTHDAY', 'CAKE', 'PARTY', 'FUN', 'WISH', 'GIFT'];
+            const grid = Array(10).fill().map(() => Array(10).fill(''));
+            
+            // Place words
+            words.forEach(word => {
+                let placed = false;
+                while (!placed) {
+                    const row = Math.floor(Math.random() * 10);
+                    const col = Math.floor(Math.random() * (10 - word.length));
+                    if (grid[row].slice(col, col + word.length).every(cell => cell === '')) {
+                        for (let i = 0; i < word.length; i++) {
+                            grid[row][col + i] = word[i];
+                        }
+                        placed = true;
+                    }
+                }
+            });
+            
+            // Fill empty cells
+            for (let i = 0; i < 10; i++) {
+                for (let j = 0; j < 10; j++) {
+                    if (grid[i][j] === '') {
+                        grid[i][j] = String.fromCharCode(65 + Math.floor(Math.random() * 26));
+                    }
+                }
+            }
+            
+            grid.forEach(row => {
+                row.forEach(cell => {
+                    const cellDiv = document.createElement('div');
+                    cellDiv.textContent = cell;
+                    cellDiv.style.cssText = `
+                        width: 35px;
+                        height: 35px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background: rgba(255,255,255,0.1);
+                        border-radius: 4px;
+                        cursor: pointer;
+                        font-weight: bold;
+                    `;
+                    wordSearchContainer.appendChild(cellDiv);
+                });
+            });
+            
+            showGameModal('Word Search', wordSearchContainer);
+        }
+
+        function openSpinWheel() {
+            const wheelContainer = document.createElement('div');
+            wheelContainer.style.cssText = `
+                position: relative;
+                width: 300px;
+                height: 300px;
+                margin: 20px auto;
+                border-radius: 50%;
+                border: 8px solid #FFD700;
+                overflow: hidden;
+            `;
+            
+            const prizes = ['🎁 100 Points', '✨ Special Badge', '🎂 Extra Life', '🎉 Bonus Round', '💝 Mystery Gift', '⭐ Lucky Star'];
+            const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8', '#F7DC6F'];
+            
+            for (let i = 0; i < 6; i++) {
+                const segment = document.createElement('div');
+                segment.style.cssText = `
+                    position: absolute;
+                    width: 50%;
+                    height: 50%;
+                    transform-origin: 100% 100%;
+                    transform: rotate(${i * 60}deg);
+                    background: ${colors[i]};
+                `;
+                
+                const text = document.createElement('div');
+                text.textContent = prizes[i];
+                text.style.cssText = `
+                    position: absolute;
+                    top: 30%;
+                    left: 20%;
+                    transform: rotate(30deg);
+                    color: white;
+                    font-weight: bold;
+                    font-size: 12px;
+                `;
+                
+                segment.appendChild(text);
+                wheelContainer.appendChild(segment);
+            }
+            
+            const spinButton = document.createElement('button');
+            spinButton.textContent = 'SPIN';
+            spinButton.style.cssText = `
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                background: #FFD700;
+                border: 4px solid #FFA500;
+                font-weight: bold;
+                cursor: pointer;
+                z-index: 10;
+            `;
+            
+            spinButton.addEventListener('click', function() {
+                this.disabled = true;
+                const rotation = 360 * 5 + Math.random() * 360;
+                wheelContainer.style.transition = 'transform 3s ease-out';
+                wheelContainer.style.transform = `rotate(${rotation}deg)`;
+                
+                setTimeout(() => {
+                    const prizeIndex = Math.floor(((rotation % 360) / 60));
+                    showMessage(`You won: ${prizes[prizeIndex]}! 🎉`);
+                    if (settings.effects) createConfetti();
+                    this.disabled = false;
+                }, 3000);
+            });
+            
+            wheelContainer.appendChild(spinButton);
+            showGameModal('Spin the Wheel', wheelContainer);
+        }
+
+        function openMatch3() {
+            const gameGrid = document.createElement('div');
+            gameGrid.style.cssText = `
+                display: grid;
+                grid-template-columns: repeat(8, 1fr);
+                gap: 4px;
+                max-width: 320px;
+                margin: 20px auto;
+            `;
+            
+            const gems = ['💎', '💠', '💍', '💎', '💍', '💎'];
+            
+            let score = 0;
+            const scoreDisplay = document.createElement('div');
+            scoreDisplay.textContent = `Score: ${score}`;
+            scoreDisplay.style.cssText = `
+                text-align: center;
+                font-size: 1.5rem;
+                color: #FFD700;
+                margin-bottom: 20px;
+            `;
+            
+            const gameArea = document.createElement('div');
+            gameArea.appendChild(scoreDisplay);
+            gameArea.appendChild(gameGrid);
+            
+            // Create gem grid
+            for (let i = 0; i < 64; i++) {
+                const gem = document.createElement('div');
+                gem.textContent = gems[Math.floor(Math.random() * gems.length)];
+                gem.style.cssText = `
+                    width: 35px;
+                    height: 35px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: rgba(255,255,255,0.1);
+                    border-radius: 6px;
+                    cursor: pointer;
+                    font-size: 20px;
+                `;
+                
+                gem.addEventListener('click', function() {
+                    // Simple match-3 logic (would need more complex implementation)
+                    this.style.background = '#FFD700';
+                    this.style.transform = 'scale(1.1)';
+                    score += 10;
+                    scoreDisplay.textContent = `Score: ${score}`;
+                    
+                    setTimeout(() => {
+                        this.style.background = 'rgba(255,255,255,0.1)';
+                        this.style.transform = 'scale(1)';
+                    }, 300);
+                });
+                
+                gameGrid.appendChild(gem);
+            }
+            
+            showGameModal('Match-3 Gems', gameArea);
+        }
+
+        // Interactive Features
+        function openCakeDecorator() {
+            const decoratorContainer = document.createElement('div');
+            decoratorContainer.style.cssText = `
+                text-align: center;
+                padding: 20px;
+            `;
+            
+            const cake = document.createElement('div');
+            cake.textContent = '🎂';
+            cake.style.cssText = `
+                font-size: 8rem;
+                margin: 20px 0;
+                cursor: pointer;
+                transition: transform 0.3s ease;
+            `;
+            
+            cake.addEventListener('click', function() {
+                this.style.transform = 'scale(1.2) rotate(10deg)';
+                if (settings.sound) playPopSound();
+                setTimeout(() => {
+                    this.style.transform = 'scale(1) rotate(0deg)';
+                }, 300);
+            });
+            
+            const toppings = ['🍓', '🫐', '🍒', '🌸', '⭐', '✨'];
+            const toppingsContainer = document.createElement('div');
+            toppingsContainer.style.cssText = `
+                display: flex;
+                justify-content: center;
+                gap: 15px;
+                margin-top: 20px;
+                flex-wrap: wrap;
+            `;
+            
+            toppings.forEach(topping => {
+                const toppingBtn = document.createElement('button');
+                toppingBtn.textContent = topping;
+                toppingBtn.style.cssText = `
+                    font-size: 2rem;
+                    padding: 10px;
+                    background: rgba(255,255,255,0.1);
+                    border: 2px solid rgba(255,255,255,0.3);
+                    border-radius: 10px;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                `;
+                
+                toppingBtn.addEventListener('click', function() {
+                    this.style.transform = 'scale(1.2)';
+                    if (settings.sound) playPopSound();
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 200);
+                });
+                
+                toppingsContainer.appendChild(toppingBtn);
+            });
+            
+            decoratorContainer.appendChild(cake);
+            decoratorContainer.appendChild(toppingsContainer);
+            
+            showGameModal('Cake Decorator', decoratorContainer);
+        }
+
+        function openGiftCreator() {
+            const giftContainer = document.createElement('div');
+            giftContainer.style.cssText = `
+                text-align: center;
+                padding: 20px;
+            `;
+            
+            const gift = document.createElement('div');
+            gift.innerHTML = '🎁';
+            gift.style.cssText = `
+                font-size: 8rem;
+                margin: 20px 0;
+                cursor: pointer;
+                transition: transform 0.3s ease;
+            `;
+            
+            gift.addEventListener('click', function() {
+                this.style.transform = 'scale(1.2) rotate(10deg)';
+                if (settings.effects) createConfetti();
+                setTimeout(() => {
+                    this.style.transform = 'scale(1) rotate(0deg)';
+                }, 300);
+            });
+            
+            const wrapColors = ['#FF69B4', '#FFD700', '#00CED1', '#9370DB', '#FF4500'];
+            const colorsContainer = document.createElement('div');
+            colorsContainer.style.cssText = `
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                margin-top: 20px;
+                flex-wrap: wrap;
+            `;
+            
+            wrapColors.forEach(color => {
+                const colorBtn = document.createElement('button');
+                colorBtn.style.cssText = `
+                    width: 40px;
+                    height: 40px;
+                    background: ${color};
+                    border: none;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    transition: transform 0.3s ease;
+                `;
+                
+                colorBtn.addEventListener('click', function() {
+                    gift.style.filter = `hue-rotate(${Math.random() * 360}deg)`;
+                    if (settings.sound) playPopSound();
+                });
+                
+                colorsContainer.appendChild(colorBtn);
+            });
+            
+            giftContainer.appendChild(gift);
+            giftContainer.appendChild(colorsContainer);
+            
+            showGameModal('Gift Creator', giftContainer);
+        }
+
+        function openWishCandles() {
+            const candleContainer = document.createElement('div');
+            candleContainer.style.cssText = `
+                text-align: center;
+                padding: 20px;
+            `;
+            
+            const cake = document.createElement('div');
+            cake.innerHTML = '🎂';
+            cake.style.cssText = `
+                font-size: 6rem;
+                margin: 20px 0;
+                position: relative;
+            `;
+            
+            // Add candles
+            for (let i = 0; i < 5; i++) {
+                const candle = document.createElement('div');
+                candle.textContent = '🕯️';
+                candle.style.cssText = `
+                    position: absolute;
+                    top: -20px;
+                    left: ${20 + i * 20}%;
+                    font-size: 1.5rem;
+                    animation: candleFlicker 1s ease-in-out infinite alternate;
+                `;
+                cake.appendChild(candle);
+            }
+            
+            const wishInput = document.createElement('textarea');
+            wishInput.placeholder = 'Make a wish...';
+            wishInput.style.cssText = `
+                width: 300px;
+                height: 100px;
+                padding: 10px;
+                border-radius: 10px;
+                border: none;
+                resize: none;
+                margin: 20px 0;
+                background: rgba(255,255,255,0.9);
+                color: #333;
+            `;
+            
+            const blowBtn = document.createElement('button');
+            blowBtn.textContent = '💨 Blow Out Candles';
+            blowBtn.className = 'btn';
+            
+            blowBtn.addEventListener('click', function() {
+                const wish = wishInput.value.trim();
+                if (wish) {
+                    addWishToJar(`Wish: ${wish}`);
+                    showMessage('Your wish has been added to the wish jar! ✨');
+                    wishInput.value = '';
+                }
+                
+                // Remove candles
+                const candles = cake.querySelectorAll('div');
+                candles.forEach((candle, index) => {
+                    setTimeout(() => {
+                        candle.style.opacity = '0';
+                        setTimeout(() => candle.remove(), 500);
+                    }, index * 200);
+                });
+                
+                if (settings.effects) {
+                    createSparkles();
+                }
+            });
+            
+            candleContainer.appendChild(cake);
+            candleContainer.appendChild(wishInput);
+            candleContainer.appendChild(blowBtn);
+            
+            showGameModal('Make a Wish', candleContainer);
+        }
+
+        function openMessageCreator() {
+            const messageContainer = document.createElement('div');
+            messageContainer.style.cssText = `
+                padding: 20px;
+                max-width: 500px;
+                margin: 0 auto;
+            `;
+            
+            const templates = [
+                'Happy Birthday! Wishing you a day filled with joy and laughter! 🎉',
+                'Another year older, another year wiser. Happy Birthday! 🎂',
+                'May your birthday be the start of a year filled with happiness! ✨',
+                'Celebrating you today and all the wonderful things you bring to the world! 🌟',
+                'Happy Birthday! May all your dreams come true this year! 💫'
+            ];
+            
+            const templateSelect = document.createElement('select');
+            templateSelect.style.cssText = `
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 15px;
+                border-radius: 8px;
+                border: none;
+                background: rgba(255,255,255,0.9);
+                color: #333;
+            `;
+            
+            templates.forEach(template => {
+                const option = document.createElement('option');
+                option.textContent = template;
+                templateSelect.appendChild(option);
+            });
+            
+            const messageInput = document.createElement('textarea');
+            messageInput.placeholder = 'Type your custom birthday message...';
+            messageInput.style.cssText = `
+                width: 100%;
+                height: 150px;
+                padding: 15px;
+                border-radius: 10px;
+                border: none;
+                resize: vertical;
+                margin: 15px 0;
+                background: rgba(255,255,255,0.9);
+                color: #333;
+                font-size: 16px;
+                line-height: 1.5;
+            `;
+            
+            const buttonsContainer = document.createElement('div');
+            buttonsContainer.style.cssText = `
+                display: flex;
+                gap: 10px;
+                justify-content: center;
+                flex-wrap: wrap;
+            `;
+            
+            const useTemplateBtn = document.createElement('button');
+            useTemplateBtn.textContent = 'Use Template';
+            useTemplateBtn.className = 'btn';
+            useTemplateBtn.onclick = () => {
+                messageInput.value = templateSelect.value;
+            };
+            
+            const saveMessageBtn = document.createElement('button');
+            saveMessageBtn.textContent = 'Save Message';
+            saveMessageBtn.className = 'btn';
+            saveMessageBtn.onclick = () => {
+                if (messageInput.value.trim()) {
+                    addWishToJar(messageInput.value.trim());
+                    showMessage('Message saved to wish jar! 📝');
+                    messageInput.value = '';
+                }
+            };
+            
+            const shareBtn = document.createElement('button');
+            shareBtn.textContent = 'Share';
+            shareBtn.className = 'btn';
+            shareBtn.onclick = () => {
+                if (messageInput.value.trim()) {
+                    shareMessage(messageInput.value.trim());
+                }
+            };
+            
+            buttonsContainer.appendChild(useTemplateBtn);
+            buttonsContainer.appendChild(saveMessageBtn);
+            buttonsContainer.appendChild(shareBtn);
+            
+            messageContainer.appendChild(templateSelect);
+            messageContainer.appendChild(messageInput);
+            messageContainer.appendChild(buttonsContainer);
+            
+            showGameModal('Message Creator', messageContainer);
+        }
+
+        // Photo Collage
+        function uploadPhoto(slot) {
+            const fileInput = document.getElementById('fileInput');
+            fileInput.onchange = (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        const img = document.createElement('img');
+                        img.src = e.target.result;
+                        img.className = 'photo-preview';
+                        slot.innerHTML = '';
+                        slot.appendChild(img);
+                        slot.classList.add('has-photo');
+                        photoSlots.push({slot: slot, image: e.target.result});
+                    };
+                    reader.readAsDataURL(file);
+                }
+            };
+            fileInput.click();
+        }
+
+        function downloadCollage() {
+            if (photoSlots.length === 0) {
+                showMessage('Please add some photos first! 📷');
+                return;
+            }
+            
+            showMessage('Collage feature coming soon! 🎨');
+        }
+
+        function clearCollage() {
+            document.querySelectorAll('.photo-slot').forEach(slot => {
+                slot.innerHTML = '<div class="photo-placeholder">📷</div>';
+                slot.classList.remove('has-photo');
+            });
+            photoSlots = [];
+        }
+
+        // Audio System
+        function initializeAudio() {
+            try {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                analyser = audioContext.createAnalyser();
+                analyser.fftSize = 256;
+                dataArray = new Uint8Array(analyser.frequencyBinCount);
+            } catch (e) {
+                console.log('Web Audio not supported');
+            }
+        }
+
+        function selectTrack(index) {
+            document.querySelectorAll('.track-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.track-btn')[index].classList.add('active');
+            currentTrackIndex = index;
+        }
+
+        function togglePlayPause() {
+            const btn = document.getElementById('playPauseBtn');
+            if (btn.textContent === '▶️') {
+                btn.textContent = '⏸️';
+                startVisualizer();
+            } else {
+                btn.textContent = '▶️';
+            }
+        }
+
+        function startVisualizer() {
+            if (!audioContext || !analyser) return;
+            
+            const canvas = document.getElementById('visualizer');
+            const ctx = canvas.getContext('2d');
+            
+            function draw() {
+                if (document.getElementById('playPauseBtn').textContent === '⏸️') {
+                    requestAnimationFrame(draw);
+                    
+                    analyser.getByteFrequencyData(dataArray);
+                    
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    
+                    const barWidth = canvas.width / dataArray.length;
+                    
+                    for (let i = 0; i < dataArray.length; i++) {
+                        const barHeight = (dataArray[i] / 255) * canvas.height;
+                        
+                        ctx.fillStyle = `hsl(${i * 2}, 70%, 60%)`;
+                        ctx.fillRect(i * barWidth, canvas.height - barHeight, barWidth - 2, barHeight);
+                    }
+                }
+            }
+            
+            draw();
+        }
+
+        // Wish Jar
+        function addWish() {
+            const input = document.getElementById('wishInput');
+            const wish = input.value.trim();
+            
+            if (wish) {
+                wishes.push(wish);
+                localStorage.setItem('birthdayWishes', JSON.stringify(wishes));
+                input.value = '';
+                displayWishes();
+                
+                if (settings.effects) {
+                    createSparkles();
+                }
+            }
+        }
+
+        function addWishToJar(wish) {
+            wishes.push(wish);
+            localStorage.setItem('birthdayWishes', JSON.stringify(wishes));
+            displayWishes();
+        }
+
+        function displayWishes() {
+            const wishesList = document.getElementById('wishesList');
+            wishesList.innerHTML = '';
+            
+            wishes.slice(-10).forEach((wish, index) => {
+                const wishPaper = document.createElement('div');
+                wishPaper.className = 'wish-paper';
+                wishPaper.textContent = wish;
+                wishPaper.style.animationDelay = (index * 0.5) + 's';
+                wishesList.appendChild(wishPaper);
+            });
+        }
+
+        function clearWishes() {
+            if (confirm('Are you sure you want to clear all wishes?')) {
+                wishes = [];
+                localStorage.removeItem('birthdayWishes');
+                displayWishes();
+            }
+        }
+
+        function exportWishes() {
+            const data = {
+                wishes: wishes,
+                exported: new Date().toISOString()
+            };
+            
+            const blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'birthday-wishes.json';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function loadWishes() {
+            displayWishes();
+        }
+
+        // Countdown Timer
+        function startCountdown() {
+            function updateCountdown() {
+                const now = new Date();
+                const birthday = new Date(settings.birthday);
+                
+                // Set to next birthday if already passed this year
+                if (birthday < now) {
+                    birthday.setFullYear(birthday.getFullYear() + 1);
+                }
+                
+                const diff = birthday - now;
+                
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                
+                document.getElementById('days').textContent = String(days).padStart(2, '0');
+                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+            }
+            
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        }
+
+        function setBirthdayDate() {
+            const date = prompt('Enter birthday (YYYY-MM-DD):');
+            if (date) {
+                const [year, month, day] = date.split('-').map(Number);
+                settings.birthday = new Date(year, month - 1, day);
+                saveSettings();
+                startCountdown();
+                showMessage('Birthday date updated! 🎉');
+            }
+        }
+
+        function shareCountdown() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Birthday Countdown',
+                    text: `Counting down to ${settings.name}'s birthday!`,
+                    url: window.location.href
+                });
+            } else {
+                showMessage('Share feature not supported on this device 📱');
+            }
+        }
+
+        // Utility Functions
+        function showGameModal(title, content) {
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.8);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 10000;
+                padding: 20px;
+            `;
+            
+            const modalContent = document.createElement('div');
+            modalContent.style.cssText = `
+                background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9));
+                border-radius: 20px;
+                padding: 20px;
+                max-width: 90vw;
+                max-height: 90vh;
+                overflow: auto;
+                border: 2px solid rgba(255,255,255,0.3);
+            `;
+            
+            const closeBtn = document.createElement('button');
+            closeBtn.textContent = '✕';
+            closeBtn.style.cssText = `
+                float: right;
+                background: rgba(255,255,255,0.2);
+                border: none;
+                border-radius: 50%;
+                width: 30px;
+                height: 30px;
+                color: white;
+                cursor: pointer;
+                font-size: 18px;
+            `;
+            
+            const titleElement = document.createElement('h2');
+            titleElement.textContent = title;
+            titleElement.style.cssText = `
+                color: #FFD700;
+                text-align: center;
+                margin-bottom: 20px;
+            `;
+            
+            closeBtn.onclick = () => modal.remove();
+            modal.onclick = (e) => {
+                if (e.target === modal) modal.remove();
+            };
+            
+            modalContent.appendChild(closeBtn);
+            modalContent.appendChild(titleElement);
+            modalContent.appendChild(content);
+            modal.appendChild(modalContent);
+            
+            document.body.appendChild(modal);
+        }
+
+        function showMessage(message) {
+            const messageDiv = document.createElement('div');
+            messageDiv.textContent = message;
+            messageDiv.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: linear-gradient(135deg, #FFD700, #FFA500);
+                color: #000;
+                padding: 20px 40px;
+                border-radius: 20px;
+                font-size: 1.2rem;
+                font-weight: bold;
+                z-index: 100000;
+                animation: messagePop 0.5s ease;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+                max-width: 90vw;
+                text-align: center;
+            `;
+            
+            document.body.appendChild(messageDiv);
+            
+            setTimeout(() => {
+                messageDiv.style.opacity = '0';
+                setTimeout(() => messageDiv.remove(), 500);
+            }, 3000);
+        }
+
+        function createSparkles() {
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const sparkle = document.createElement('div');
+                    sparkle.className = 'sparkle';
+                    sparkle.style.left = Math.random() * 100 + '%';
+                    sparkle.style.top = Math.random() * 100 + '%';
+                    sparkle.style.animationDelay = Math.random() * 2 + 's';
+                    document.body.appendChild(sparkle);
+                    
+                    setTimeout(() => sparkle.remove(), 2000);
+                }, i * 100);
+            }
+        }
+
+        function createConfetti() {
+            const colors = ['#FFD700', '#FF69B4', '#00CED1', '#FFA500', '#9370DB'];
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.style.position = 'fixed';
+                    confetti.style.width = '8px';
+                    confetti.style.height = '8px';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.top = '-10px';
+                    confetti.style.borderRadius = '50%';
+                    confetti.style.pointerEvents = 'none';
+                    confetti.style.zIndex = '10000';
+                    confetti.style.animation = 'confettiFall 3s linear forwards';
+                    
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => confetti.remove(), 3000);
+                }, i * 30);
+            }
+        }
+
+        function playPopSound() {
+            if (!settings.sound) return;
+            
+            try {
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+                oscillator.frequency.exponentialRampToValueAtTime(200, audioContext.currentTime + 0.1);
+                
+                gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+                
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 0.1);
+            } catch (e) {}
+        }
+
+        function shareMessage(message) {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Birthday Message',
+                    text: message,
+                    url: window.location.href
+                });
+            } else {
+                // Fallback to clipboard
+                navigator.clipboard.writeText(message).then(() => {
+                    showMessage('Message copied to clipboard! 📋');
+                }).catch(() => {
+                    showMessage('Unable to share message 📱');
+                });
+            }
+        }
+
+        function exportData() {
+            const data = {
+                settings,
+                wishes,
+                photoSlots,
+                exported: new Date().toISOString()
+            };
+            
+            const blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'birthday-data.json';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function importData() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = '.json';
+            input.onchange = (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        try {
+                            const data = JSON.parse(e.target.result);
+                            settings = {...settings, ...data.settings};
+                            wishes = data.wishes || [];
+                            photoSlots = data.photoSlots || [];
+                            
+                            localStorage.setItem('birthdaySettings', JSON.stringify(settings));
+                            localStorage.setItem('birthdayWishes', JSON.stringify(wishes));
+                            
+                            loadSettings();
+                            displayWishes();
+                            showMessage('Data imported successfully! 📁');
+                        } catch (error) {
+                            showMessage('Invalid file format! ❌');
+                        }
+                    };
+                    reader.readAsText(file);
+                }
+            };
+            input.click();
+        }
+
+        function resetAll() {
+            if (confirm('Are you sure you want to reset everything? This cannot be undone!')) {
+                localStorage.removeItem('birthdaySettings');
+                localStorage.removeItem('birthdayWishes');
+                localStorage.removeItem('bdayBest');
+                
+                location.reload();
+            }
+        }
+
+        // Add CSS animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes messagePop {
+                from { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+                to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            }
+            
+            @keyframes confettiFall {
+                to {
+                    transform: translateY(100vh) rotate(720deg);
+                    opacity: 0;
+                }
+            }
+            
+            @keyframes candleFlicker {
+                from { transform: scaleY(1); }
+                to { transform: scaleY(1.1); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
